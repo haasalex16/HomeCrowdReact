@@ -1,0 +1,39 @@
+.bar-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #5583C0;
+  border-bottom: 2px solid #5583C0;
+}
+
+.bar-card {
+  font-size: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  background: #E9E0D6;
+}
+
+.bar-card:hover {
+  background: #C3C3C3;
+}
+
+.title {
+  flex: 1 1 auto;
+}
+
+.address {
+  flex: 0 0 100%;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+
+.bar-info-container {
+  font-size: 20px;
+  color: #5583C0;
+  text-align: center;
+  flex: 0 1 auto;
+  width: 20px;
+  margin: 10px;
+  border: 2px solid #5583C0;
+  border-radius: 90px;
+}

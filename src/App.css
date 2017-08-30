@@ -1,0 +1,142 @@
+html, body, .App, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+header {
+  border-top: 10px solid black;
+  width: 100%;
+  display: flex;
+  height: 60px;
+  background: #DED3C6;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.filter-container {
+  padding: 10px;
+  font-size: 14px;
+  background: #918B8B;
+  position: absolute;
+  top: 70px;
+  flex-wrap: wrap;
+  display: none;
+}
+
+.filter-container.active, .nav-container {
+  display: flex;
+}
+
+.nav-button:hover {
+  background: #C3C3C3;
+}
+
+.nav-button {
+  padding: 0 5px;
+  margin: 15px 0;
+  font-family: Arial, Helvetica, sans-serif;
+  vertical-align: middle;
+  font: 13px;
+  height: 30px;
+  display: flex;
+  border-left: 2px solid black;
+}
+
+.nav-text, .nav-text-small {
+  padding: 8px;
+}
+
+.nav-icon {
+  height: 30px;
+}
+
+.filter-button {
+  flex: 0 25%;
+  display: flex;
+}
+
+.filter-icon {
+  height: 30px;
+  padding: 2px;
+}
+
+.active-team {
+  padding: 12px;
+}
+
+.filter-button:hover {
+  background: #C3C3C3;
+}
+
+.App {
+  font-family: Helvetica;
+}
+
+.list-page {
+  flex: 1 1 100%;
+  order: 2;
+  overflow-y: scroll;
+  background: #E9E0D6;
+
+}
+
+.map-container {
+  background: lightblue;
+  flex: 0 0 33%;
+  order: 1;
+}
+
+.nav-text {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .list-page {
+    flex: 1 1 40%;
+    order: 1;
+  }
+
+  .map-container {
+    flex: 1 1 60%;
+    order: 2;
+    height: auto;
+  }
+
+  .nav-text-small {
+    display: none;
+  }
+
+  .nav-text {
+    display: block;
+  }
+
+  .main {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* mWeb */
+
+@media (max-width: 600px) {
+  .team-icon {
+    height: 36px;
+  }
+
+  .nav-text, .nav-text-small {
+    display: none;
+  }
+
+  .filter-button {
+    flex: 0 20%;
+  }
+};
+
+@import './components/Bar/Bar.scss';

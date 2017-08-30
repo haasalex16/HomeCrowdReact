@@ -1,0 +1,77 @@
+# project: homecrowd
+# version: 45
+
+type User implements Node {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type File implements Node {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+type Bar implements Node {
+  id: ID! @isUnique
+  googlePlaceId: String @isUnique
+  name: String!
+  address: String! @isUnique
+  website: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  teams: [Team!]! @relation(name: "TeamLoyaltyBars")
+  lat: Float!
+  lng: Float!
+  phoneNumber: String! @isUnique
+  loyalties: [Loyalty!]! @relation(name: "LoyaltyOnBar")
+}
+
+type Team implements Node {
+  name: String! @isUnique
+  bars: [Bar!]! @relation(name: "TeamLoyaltyBars")
+  createdAt: DateTime!
+  iconUrl: String!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+  league: League @relation(name: "LeagueOnTeam")
+  loyalties: [Loyalty!]! @relation(name: "LoyaltyOnTeam")
+  nickname: String
+}
+
+type League implements Node {
+  name: String! @isUnique
+  iconUrl: String
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+  teams: [Team!]! @relation(name: "LeagueOnTeam")
+}
+
+type Group implements Node {
+  contactEmail: String
+  contactName: String
+  createdAt: DateTime!
+  groupType: String
+  id: ID! @isUnique
+  loyalties: [Loyalty!]! @relation(name: "GroupOnLoyalty")
+  name: String!
+  updatedAt: DateTime!
+  website: String!
+}
+
+type Loyalty implements Node {
+  alumni: Boolean! @defaultValue(value: false)
+  bar: Bar @relation(name: "LoyaltyOnBar")
+  createdAt: DateTime!
+  group: Group @relation(name: "GroupOnLoyalty")
+  id: ID! @isUnique
+  team: Team @relation(name: "LoyaltyOnTeam")
+  updatedAt: DateTime!
+}
