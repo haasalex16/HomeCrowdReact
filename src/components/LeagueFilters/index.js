@@ -13,7 +13,7 @@ function LeagueFiltersList(props) {
     return <p>{props.error.message}</p>;
   }
   return (
-    <div className='nav-container'>
+    <nav className='nav-container'>
       { props.allLeagues.map((league) => {
         return (
           <div
@@ -23,12 +23,12 @@ function LeagueFiltersList(props) {
             role='presentation'
           >
             <img className='nav-icon' src={league.iconUrl} alt={league.name} />
-            <p className='nav-text'>{league.name}</p>
-            <p className='nav-text-small'>{league.name}</p>
+            <p className='label-text'>{league.name}</p>
+            <p className='label-text-mobile'>{league.name}</p>
           </div>
         );
       }) }
-    </div>
+    </nav>
   );
 }
 

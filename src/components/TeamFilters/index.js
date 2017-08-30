@@ -31,8 +31,8 @@ class FiltersList extends React.Component {
           role='presentation'
         >
           <img className='filter-icon' src={team.iconUrl} alt={team.name} />
-          <p className='nav-text'>{team.name}</p>
-          <p className='nav-text-small'>{team.nickname}</p>
+          <p className='label-text'>{team.name}</p>
+          <p className='label-text-mobile'>{team.nickname}</p>
         </div>
       );
     });

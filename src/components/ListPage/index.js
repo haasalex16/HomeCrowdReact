@@ -4,7 +4,7 @@ import {
   gql,
   graphql,
 } from 'react-apollo';
-import Bar from './Bar/index';
+import Bar from '../Bar/index';
 
 
 const BarsList = ({ selectedTeam, data: { loading, error, Team } }) => {
@@ -15,7 +15,7 @@ const BarsList = ({ selectedTeam, data: { loading, error, Team } }) => {
       </div>);
   }
   if (error) {
-    return <p>{error.message}</p>;
+    return <p className='list-page'>{error.message}</p>;
   }
   return (
     <div className='list-page'>

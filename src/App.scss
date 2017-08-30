@@ -1,0 +1,89 @@
+html, body, .main, .App, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.App {
+  font-family: Helvetica;
+}
+
+header {
+  display: flex;
+  border-top: 10px solid black;
+  width: 100%;
+  height: 60px;
+  background: #DED3C6;
+}
+
+.main {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.label-text, .label-text-mobile {
+  padding: 8px;
+}
+
+.active-team {
+  padding: 12px;
+}
+
+.map-container {
+  background: lightblue;
+  flex: 0 0 33%;
+  order: 1;
+}
+
+.label-text {
+  display: none;
+}
+
+.filter-icon {
+  height: 30px;
+  padding: 2px;
+}
+
+@media (min-width: 1024px) {
+  .list-page {
+    flex: 1 1 40%;
+    order: 1;
+  }
+
+  .map-container {
+    flex: 1 1 60%;
+    order: 2;
+    height: auto;
+  }
+
+  .label-text-mobile {
+    display: none;
+  }
+
+  .label-text {
+    display: block;
+  }
+
+  .main {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* mWeb */
+
+@media (max-width: 600px) {
+  .team-icon {
+    height: 36px;
+  }
+
+  .label-text, .label-text-mobile {
+    display: none;
+  }
+};
+
+@import './components/Bar/Bar.scss';
+@import './components/ListPage/ListPage.scss';
+@import './components/LeagueFilters/LeagueFilters.scss';
+@import './components/TeamFilters/TeamFilters.scss';
