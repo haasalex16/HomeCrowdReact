@@ -62,13 +62,15 @@ header {
 
 .bar-card {
   display: flex;
-  flex-wrap: wrap;
   padding: 5px;
   background: #E9E0D6; }
   .bar-card:hover {
     background: #C3C3C3; }
   .bar-card .title {
-    flex: 1 1 auto; }
+    flex: 1 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
     .bar-card .title .bar-name {
       padding-top: 5px;
       font-weight: bold; }
@@ -80,9 +82,8 @@ header {
   .bar-card .bar-info-container {
     font-size: 20px;
     text-align: center;
-    flex: 0 1 auto;
-    width: 20px;
-    margin: 10px;
+    flex: 0 0 20px;
+    margin: 10px 5px;
     border: 2px solid black;
     border-radius: 90px; }
 
