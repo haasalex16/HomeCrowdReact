@@ -21,7 +21,11 @@ class App extends React.Component {
       teamSrc: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/130.png&transparent=true',
       teamFiltersActive: false,
       selectedTeam: 'University of Michigan',
+      barInfoActive: false,
+      barInfo: { name: 'Prof' },
     };
+    this.handleBarClick = this.handleBarClick.bind(this);
+    this.handleCloseClick = this.handleCloseClick.bind(this);
   }
 
   handleClick(selectedTeam, teamSrc) {
@@ -29,12 +33,27 @@ class App extends React.Component {
       selectedTeam,
       teamSrc,
       teamFiltersActive: false,
+      barInfoActive: false,
+    });
+  }
+
+  handleBarClick(barInfo) {
+    this.setState({
+      barInfo,
+      barInfoActive: true,
+    });
+  }
+
+  handleCloseClick() {
+    this.setState({
+      barInfoActive: false,
     });
   }
 
   handleLeagueClick(leagueName) {
     this.setState({
       leagueName,
+      barInfoActive: false,
       teamFiltersActive: true,
     });
   }
@@ -50,7 +69,6 @@ class App extends React.Component {
               <img className='filter-icon' src={this.state.teamSrc} alt={this.state.leagueName} />
             </div>
             <LeagueFilters
-              teamFiltersActive={this.state.teamFiltersActive}
               onClick={leagueName => this.handleLeagueClick(leagueName)}
             />
             <TeamFilters
@@ -61,7 +79,11 @@ class App extends React.Component {
           </header>
           <span className='main'>
             <ListPage
+              barInfo={this.state.barInfo}
+              barInfoActive={this.state.barInfoActive}
               selectedTeam={this.state.selectedTeam}
+              handleBarClick={this.handleBarClick}
+              handleCloseClick={this.handleCloseClick}
             />
             <span className='map-container'>MAP CONTAINER</span>
           </span>

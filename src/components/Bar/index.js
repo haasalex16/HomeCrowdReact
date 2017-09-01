@@ -8,7 +8,11 @@ function Bar(props) {
         <p className='bar-name'>{props.bar.name}</p>
         <p className='address'>{props.bar.address}</p>
       </h1>
-      <p className='bar-info-container'>
+      <p
+        className='bar-info-container'
+        onClick={() => props.onClick(props.bar)}
+        role='presentation'
+      >
         i
       </p>
     </div>

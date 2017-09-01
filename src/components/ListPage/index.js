@@ -5,21 +5,33 @@ import {
   graphql,
 } from 'react-apollo';
 import Bar from '../Bar/index';
+import BarInfo from '../BarInfo/index';
 
 
-const BarsList = ({ selectedTeam, data: { loading, error, Team } }) => {
-  if (loading) {
+const BarsList = (props) => {
+  if (props.loading) {
     return (
       <div className='list-page'>
         Loading ...
       </div>);
   }
-  if (error) {
-    return <p className='list-page'>{error.message}</p>;
+  if (props.error) {
+    return <p className='list-page'>{props.error.message}</p>;
   }
   return (
     <div className='list-page'>
-      { Team.bars.map(bar => <Bar key={bar.id} bar={bar} />) }
+      <BarInfo
+        barInfoActive={props.barInfoActive}
+        barInfo={props.barInfo}
+        handleCloseClick={props.handleCloseClick}
+      />
+      { props.Team.bars.map(bar => (
+        <Bar
+          key={bar.id}
+          bar={bar}
+          onClick={barInfo => props.handleBarClick(barInfo)}
+        />),
+      ) }
     </div>
   );
 };
@@ -34,8 +46,9 @@ query barsListQuery($selectedTeam: String!) {
     bars(orderBy: name_ASC) {
       id
       name
-      phoneNumber
       address
+      website
+      phoneNumber
       teams {
         id
         name
@@ -48,6 +61,11 @@ query barsListQuery($selectedTeam: String!) {
 
 const ListPage = graphql(barsListQuery, {
   options: ({ selectedTeam }) => ({ variables: { selectedTeam } }),
+  props: ({ data: { loading, error, Team } }) => ({
+    loading,
+    error,
+    Team,
+  }),
 })(BarsList);
 
 export default ListPage;
