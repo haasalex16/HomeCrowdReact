@@ -10,7 +10,7 @@ import TeamFilters from './components/TeamFilters/index';
 import LeagueFilters from './components/LeagueFilters/index';
 
 const client = new ApolloClient({
-  networkInterface: createNetworkInterface('https://api.graph.cool/simple/v1/cj6f5q4625qgj0101z9enh5qe'),
+  networkInterface: createNetworkInterface({ uri: 'https://api.graph.cool/simple/v1/cj6f5q4625qgj0101z9enh5qe' }),
 });
 
 class App extends React.Component {

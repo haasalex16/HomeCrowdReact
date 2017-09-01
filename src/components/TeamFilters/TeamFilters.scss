@@ -1,11 +1,23 @@
 .filter-container {
   display: none;
   padding: 10px;
-  font-size: 14px;
-  background: #918B8B;
+  font-size: 12px;
+  background: #edeef0;
   position: absolute;
   top: 70px;
+  left: 20px;
   flex-wrap: wrap;
+  border: 5px solid white;
+  width: 525px;
+
+  @media (min-width: 1024px) {
+    width: 800px;
+    left: 60px;
+  }
+
+  @media (max-width: 600px) {
+    width: 300px;
+  }
 
   &.active {
     display: flex;
