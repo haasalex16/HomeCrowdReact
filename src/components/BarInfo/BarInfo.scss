@@ -23,11 +23,17 @@
   }
 
   .bar-info-teams-container {
-    display: flex;
-
-    .bar-info-team-icon {
-      height: 30px;
-      padding: 5px;
+    .bar-info-team-container {
+      display: flex;
+      .bar-info-team-icon {
+        height: 30px;
+        padding: 5px;
+      }
+      .bar-info-team-name {
+        margin: auto 0;
+        color: black;
+        font-weight: bolder;
+      }
     }
   }
 

@@ -25,10 +25,10 @@ const BarsList = (props) => {
         barInfo={props.barInfo}
         handleCloseClick={props.handleCloseClick}
       />
-      { props.Team.bars.map(bar => (
+      { props.Team.loyalties.map(loyalty => (
         <Bar
-          key={bar.id}
-          bar={bar}
+          key={loyalty.bar.id}
+          bar={loyalty.bar}
           onClick={barInfo => props.handleBarClick(barInfo)}
         />),
       ) }
@@ -43,16 +43,23 @@ BarsList.propTypes = {
 const barsListQuery = gql`
 query barsListQuery($selectedTeam: String!) {
   Team(name: $selectedTeam) {
-    bars(orderBy: name_ASC) {
-      id
-      name
-      address
-      website
-      phoneNumber
-      teams {
+    loyalties {
+      bar {
         id
         name
-        iconUrl
+        address
+        website
+        phoneNumber
+        loyalties {
+          team {
+            name
+            iconUrl
+          }
+          group {
+            name
+            website
+          }
+        }
       }
     }
   }

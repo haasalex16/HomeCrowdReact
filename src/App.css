@@ -159,11 +159,15 @@ header {
     font-weight: bold; }
   .bar-info .close-button {
     font-size: 20px; }
-  .bar-info .bar-info-teams-container {
+  .bar-info .bar-info-teams-container .bar-info-team-container {
     display: flex; }
-    .bar-info .bar-info-teams-container .bar-info-team-icon {
+    .bar-info .bar-info-teams-container .bar-info-team-container .bar-info-team-icon {
       height: 30px;
       padding: 5px; }
+    .bar-info .bar-info-teams-container .bar-info-team-container .bar-info-team-name {
+      margin: auto 0;
+      color: black;
+      font-weight: bolder; }
   @media (min-width: 1024px) {
     .bar-info {
       width: 40%; } }

@@ -16,9 +16,21 @@ function BarInfo(props) {
       <h1>{props.barInfo.phoneNumber}</h1>
       <span className='bar-info-teams-container'>
         {
-          (props.barInfo.teams || []).map((team) => {
+          (props.barInfo.loyalties || []).map((loyalty) => {
+            const groupElement = loyalty.group ? (
+              <a
+                target='_blank'
+                className='bar-info-team-name'
+                href={loyalty.group.website}
+              >
+                {loyalty.group.name}
+              </a>
+            ) : null;
             return (
-              <img className='bar-info-team-icon' src={team.iconUrl} alt={team.name} />
+              <span className='bar-info-team-container'>
+                <img className='bar-info-team-icon' src={loyalty.team.iconUrl} alt={loyalty.team.name} />
+                { groupElement }
+              </span>
             );
           })
         }
@@ -29,6 +41,7 @@ function BarInfo(props) {
 
 BarInfo.propTypes = {
   bar: PropTypes.object.isRequired,
+  barInfo: PropTypes.object.isRequired,
 };
 
 export default BarInfo;
