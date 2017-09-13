@@ -35,6 +35,11 @@
     margin: 10px 5px;
     border: 2px solid black;
     border-radius: 90px;
+
+    &:hover {
+      color: white;
+      border-color: white;
+    }
   }
 }
 

@@ -1,11 +1,12 @@
 .list-page {
-  flex: 1 1 100%;
+  height: calc(67% - 70px);
   order: 2;
   overflow-y: scroll;
   background: #E9E0D6;
 
   @media (min-width: 1024px) {
     flex: 1 1 40%;
+    height: calc(100% - 70px);
     order: 1;
   }
 }
