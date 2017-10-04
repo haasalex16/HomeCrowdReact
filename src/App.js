@@ -8,6 +8,7 @@ import './App.css';
 import ListPage from './components/ListPage/index';
 import TeamFilters from './components/TeamFilters/index';
 import LeagueFilters from './components/LeagueFilters/index';
+import MapContainer from './components/MapContainer/index';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({ uri: 'https://api.graph.cool/simple/v1/cj6f5q4625qgj0101z9enh5qe' }),
@@ -85,7 +86,11 @@ class App extends React.Component {
               handleBarClick={this.handleBarClick}
               handleCloseClick={this.handleCloseClick}
             />
-            <span className='map-container'>MAP CONTAINER</span>
+            <span className='map-container'>
+              <div className='another-container'>
+                <MapContainer />
+              </div>
+            </span>
           </span>
         </div>
       </ApolloProvider>

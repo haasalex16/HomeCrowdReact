@@ -32,12 +32,6 @@ header {
   padding: 12px;
 }
 
-.map-container {
-  background: lightblue;
-  flex: 0 0 33%;
-  order: 1;
-}
-
 .label-text {
   display: none;
 }
@@ -51,12 +45,6 @@ header {
   .list-page {
     flex: 1 1 40%;
     order: 1;
-  }
-
-  .map-container {
-    flex: 1 1 60%;
-    order: 2;
-    height: auto;
   }
 
   .label-text-mobile {
@@ -90,3 +78,4 @@ header {
 @import './components/LeagueFilters/LeagueFilters.scss';
 @import './components/TeamFilters/TeamFilters.scss';
 @import './components/BarInfo/BarInfo.scss';
+@import './components/MapContainer/MapContainer.scss';

@@ -25,11 +25,6 @@ header {
 .active-team {
   padding: 12px; }
 
-.map-container {
-  background: lightblue;
-  flex: 0 0 33%;
-  order: 1; }
-
 .label-text {
   display: none; }
 
@@ -41,10 +36,6 @@ header {
   .list-page {
     flex: 1 1 40%;
     order: 1; }
-  .map-container {
-    flex: 1 1 60%;
-    order: 2;
-    height: auto; }
   .label-text-mobile {
     display: none; }
   .label-text {
@@ -177,3 +168,23 @@ header {
   @media (min-width: 1024px) {
     .bar-info {
       width: 40%; } }
+
+.map-container {
+  background: lightblue;
+  flex: 0 0 33%;
+  order: 1; }
+
+.another-container {
+  position: absolute;
+  height: 33%;
+  width: 100%; }
+
+@media (min-width: 1024px) {
+  .map-container {
+    flex: 1 1 60%;
+    order: 2;
+    height: auto; }
+  .another-container {
+    position: absolute;
+    height: calc(100% - 70px);
+    width: 60%; } }
